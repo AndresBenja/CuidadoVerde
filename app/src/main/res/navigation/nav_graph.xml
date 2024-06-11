@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listadodePlantasFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.cuidadoverde.views.activitys.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/listadodePlantasFragment"
+        android:name="com.example.cuidadoverde.ListadodePlantasFragment"
+        android:label="fragment_listadode_plantas"
+        tools:layout="@layout/fragment_listadode_plantas" >
+        <action
+            android:id="@+id/action_listadodePlantasFragment_to_detalledePlantasFragment"
+            app:destination="@id/detalledePlantasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalledePlantasFragment"
+        android:name="com.example.cuidadoverde.DetalledePlantasFragment"
+        android:label="fragment_detallede_plantas"
+        tools:layout="@layout/fragment_detallede_plantas" >
+        <action
+            android:id="@+id/action_detalledePlantasFragment_to_listadodePlantasFragment"
+            app:destination="@id/listadodePlantasFragment" />
+        <argument
+            android:name="planta"
+            app:argType="com.example.cuidadoverde.models.PlantaResponse" />
+    </fragment>
+
+</navigation>
